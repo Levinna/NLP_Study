@@ -30,9 +30,11 @@ def naiveSoftmaxLossAndGradient(
     dataset
 ):
     """ Naive Softmax loss & gradient function for word2vec models
+
     Implement the naive softmax loss and gradients between a center word's 
     embedding and an outside word's embedding. This will be the building block
     for our word2vec models.
+
     Arguments:
     centerWordVec -- numpy ndarray, center word's embedding
                     (v_c in the pdf handout)
@@ -41,6 +43,7 @@ def naiveSoftmaxLossAndGradient(
     outsideVectors -- outside vectors (rows of matrix) for all words in vocab
                       (U in the pdf handout)
     dataset -- needed for negative sampling, unused here.
+
     Return:
     loss -- naive softmax loss
     gradCenterVec -- the gradient with respect to the center word vector
@@ -81,13 +84,16 @@ def negSamplingLossAndGradient(
     K=10
 ):
     """ Negative sampling loss function for word2vec models
+
     Implement the negative sampling loss and gradients for a centerWordVec
     and a outsideWordIdx word vector as a building block for word2vec
     models. K is the number of negative samples to take.
+
     Note: The same word may be negatively sampled multiple times. For
     example if an outside word is sampled twice, you shall have to
     double count the gradient with respect to this word. Thrice if
     it was sampled three times, and so forth.
+
     Arguments/Return Specifications: same as naiveSoftmaxLossAndGradient
     """
 
@@ -110,7 +116,9 @@ def skipgram(currentCenterWord, windowSize, outsideWords, word2Ind,
              centerWordVectors, outsideVectors, dataset,
              word2vecLossAndGradient=naiveSoftmaxLossAndGradient):
     """ Skip-gram model in word2vec
+
     Implement the skip-gram model in this function.
+
     Arguments:
     currentCenterWord -- a string of the current center word
     windowSize -- integer, context window size
@@ -125,6 +133,7 @@ def skipgram(currentCenterWord, windowSize, outsideWords, word2Ind,
                                a prediction vector given the outsideWordIdx
                                word vectors, could be one of the two
                                loss functions you implemented above.
+
     Return:
     loss -- the loss function value for the skip-gram model
             (J in the pdf handout)
